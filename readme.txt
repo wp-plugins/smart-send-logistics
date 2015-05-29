@@ -54,10 +54,10 @@ Yes. You can try the module for free for 30 days.
 
 == Screenshots ==
 
-1. Choose a pickup point when placing an order.
-2. The selected pickup point is shown on order confirmation page and confirmation email.
-3. Pickup point information is shown under the shipping and billing information in the backend.
-4. The shipping methods are all table rates and can be set in the WooCommerce shipping menu.
+1. Setup multiple shipping methods and let the customer choose between them.
+2. A dropdown with pickup points is shown for shipping methods where the customer collects the package at a store.
+3. Table rate setup of shipping methods have never been easier.
+4. Services for each carrier is easily setup in WooCommerce backend.
 
 == Changelog ==
 
