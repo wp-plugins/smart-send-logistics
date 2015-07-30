@@ -73,3 +73,11 @@ Yes. You can try the module for free for 30 days.
 * Fixing error with the possibility to place pickup point dropdown using custom hook
 * Use live environment instead of development (by mistake)
 * Fixing problem when no pickup points are found
+
+= 7.0.6
+* Adding support of WooCommerce 2.4
+* Adding return labels
+* Adding waybills
+* Adding support for Shipment Tracking
+* Changing standard value for settings
+* Updating class files
