@@ -4,7 +4,7 @@ Donate link: http://www.SmartSend.dk/
 Tags: shipping, pickup, pakkeboks, pakkeshop, hente selv, døgnboks, post danmark, gls, swipbox, bring, carrier, pacsoft, yourgls, mybring, postage, shipping method, your-gls, my-bring, pacosft-online, pacsoftonline, denmark, sweeden, posten, norway, post 
 Requires at least: 3.0.1
 Tested up to: 4.2
-Stable tag: 7.0.3
+Stable tag: 7.0.6
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -61,8 +61,23 @@ Yes. You can try the module for free for 30 days.
 
 == Changelog ==
 
-= 7.0.1 =
-* First release
+= 7.0.3 =
+* Initial release for Wordpress.org
 
-= 7.0.2 =
-* Fixing minor bugs
+= 7.0.4 =
+* Fixing problem with CSS for pickup point dropdown
+* Fixing problem when shipping and billing country is not the same
+* Adding the possibility to place pickup point dropdown using custom hook
+
+= 7.0.5
+* Fixing error with the possibility to place pickup point dropdown using custom hook
+* Use live environment instead of development (by mistake)
+* Fixing problem when no pickup points are found
+
+= 7.0.6
+* Adding support of WooCommerce 2.4
+* Adding return labels
+* Adding waybills
+* Adding support for Shipment Tracking
+* Changing standard value for settings
+* Updating class files
