@@ -113,6 +113,13 @@ if ( ! class_exists( 'Smartsend_Logistics_Posten' ) ) {
 					'default'			=> __( '1', 'woocommerce' ),
 					'desc_tip'			=> true,
 				),
+				'waybillid' 			=> array(
+					'title' 			=> __( 'Waybill ID', 'woocommerce' ),
+					'description'     	=> __( 'Either just an id or a semicolon separated list of "country,id" (* is all countries). Eg: SE,123;NO,321;*,44', 'woocommerce' ),
+					'type' 				=> 'text',
+					'default'			=> __( '', 'woocommerce' ),
+					'desc_tip'			=> true,
+				),
 				'notemail' 	=> array(
 					'title'    			=> __( 'Email notification', 'woocommerce' ),
 					'description'     	=> __( 'Send an email with info about delivery', 'woocommerce' ),
@@ -161,7 +168,10 @@ if ( ! class_exists( 'Smartsend_Logistics_Posten' ) ) {
 					'default'  			=> 'postdanmark',
 					'type'     			=> 'select',
 					'options'  			=> array(
-						'postdanmark'      	=> __( 'Post Danmark', 'woocommerce' ),
+						'smartsendpostdanmark_private'	=> __( 'Post Danmark', 'woocommerce' ),
+						'smartsendposten_private'      	=> __( 'Posten', 'woocommerce' ),
+						'smartsendgls_private'      	=> __( 'GLS', 'woocommerce' ),
+						'smartsendbring_private'      	=> __( 'Bring', 'woocommerce' ),
 					)
 				)
 			);
@@ -247,16 +257,20 @@ if ( ! class_exists( 'Smartsend_Logistics_Posten' ) ) {
 		 * @return void
 		 */
 		function get_methods(){
-			return array(
-				'pickup'				=> 'pickup',
-				'private'				=> 'private',
-				'privatehome'			=> 'privatehome',
-				'commercial'			=> 'commercial',
-                'valuemail'				=> 'valuemail',
-				'valuemailfirstclass'	=> 'valuemailfirstclass',
-				'valuemaileconomy'		=> 'valuemaileconomy',
-				'maximail'				=> 'maximail'
+			$shipping_methods = array(
+				'private'				=> 'Private',
+				'privatehome'			=> 'Private to home',
+				'commercial'			=> 'Commercial',
+                'valuemail'				=> 'Valuemail',
+				'valuemailfirstclass'	=> 'Valuemail first class',
+				'valuemaileconomy'		=> 'Valuemail economy',
+				'maximail'				=> 'Maximail'
 				);
+			if(function_exists('is_plugin_active') && !is_plugin_active( 'vc_pdk_allinone/vc_pdk_allinone.php')) {
+				$shipping_methods = array_merge(array('pickup' => 'Pickup'),$shipping_methods);
+			}
+			
+			return $shipping_methods;
 		}
                 
                 function getCountries(){

@@ -113,6 +113,13 @@ if ( ! class_exists( 'Smartsend_Logistics_PostDanmark' ) ) {
 					'default'			=> __( '1', 'woocommerce' ),
 					'desc_tip'			=> true,
 				),
+				'waybillid' 			=> array(
+					'title' 			=> __( 'Waybill ID', 'woocommerce' ),
+					'description'     	=> __( 'Either just an id or a semicolon separated list of "country,id" (* is all countries). Eg: SE,123;NO,321;*,44', 'woocommerce' ),
+					'type' 				=> 'text',
+					'default'			=> __( '', 'woocommerce' ),
+					'desc_tip'			=> true,
+				),
 				'notemail' 	=> array(
 					'title'    			=> __( 'Email notification', 'woocommerce' ),
 					'description'     	=> __( 'Send an email with info about delivery', 'woocommerce' ),
@@ -161,7 +168,10 @@ if ( ! class_exists( 'Smartsend_Logistics_PostDanmark' ) ) {
 					'default'  			=> 'postdanmark',
 					'type'     			=> 'select',
 					'options'  			=> array(
-						'postdanmark'      	=> __( 'Post Danmark', 'woocommerce' ),
+						'smartsendpostdanmark_private'	=> __( 'Post Danmark', 'woocommerce' ),
+						'smartsendposten_private'      	=> __( 'Posten', 'woocommerce' ),
+						'smartsendgls_private'      	=> __( 'GLS', 'woocommerce' ),
+						'smartsendbring_private'      	=> __( 'Bring', 'woocommerce' ),
 					)
 				)
 			);
@@ -248,15 +258,22 @@ if ( ! class_exists( 'Smartsend_Logistics_PostDanmark' ) ) {
 		 * @return void
 		 */
 		function get_methods(){
-			return array(
-				'pickup'		=> 'pickup',
-				'private'		=> 'private',
-				'privatehome'	=> 'privatehome',
-				'commercial'	=> 'commercial',
-				'dpdclassic'	=> 'dpdclassic',
-                'dpdguarantee'	=> 'dpdguarantee',
-				'valuemail'		=> 'valuemail'
+			$shipping_methods = array(
+				'private'				=> 'Private',
+				'privatehome'			=> 'Private to home',
+				'commercial'			=> 'Commercial',
+				'dpdclassic'			=> 'DPD classic',
+                'dpdguarantee'			=> 'DPD guarantee',
+				'valuemail'				=> 'Valuemail',
+				'privatesamsending' 	=> 'Private samsending',
+            	'privatepriority'		=> 'Private priority',
+            	'privateeconomy'		=> 'Private economy'
 				);
+			if(function_exists('is_plugin_active') && !is_plugin_active( 'vc_pdk_allinone/vc_pdk_allinone.php')) {
+				$shipping_methods = array_merge(array('pickup' => 'Pickup'),$shipping_methods);
+			}
+			
+			return $shipping_methods;
 		}
                 
                 function getCountries(){
