@@ -19,10 +19,11 @@ The delivery points are listed by distance from the shipping information provide
 It's free to try for 30 days. Sign up on: [SmartSend.dk](http://smartsend.dk)
 
 You can use delivery points provided from multiple carriers, like
-*   Post Danmark - Pacsoft Online
-*   GLS - YourGLS
-*   SwipBox
-*   Bring - MyBring
+
+* Post Danmark - Pacsoft Online
+* GLS - YourGLS
+* SwipBox
+* Bring - MyBring
 
 The list of delivery points are provided online from the carriers API. Your customers will therefore always see the newest list of delivery points on the checkout page.
 
@@ -33,7 +34,7 @@ This plugin replaces the two previous modules “Smart Send Labelgenerator” an
 == Installation ==
 
 1. Download and install the module/plugin.
-2. Go to WooCommerce->settings->shipping and enter the table rates
+1. Go to WooCommerce->settings->shipping and enter the table rates
 
 You can now let your customers choose delivery points.
 
@@ -42,10 +43,6 @@ You can now let your customers choose delivery points.
 = Does it require a Smart Send subscription? =
 
 Yes and no. You can try the module for free for 30 days but must have a valid Smart Send subscription to continue after that. Please see [SmartSend.dk](http://smartsend.dk)
-
-= Can I use the module with the Smart Send label generator module? =
-
-Yes.
 
 = Can I try the module without subscribing at Smart Send =
 
